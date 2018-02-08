@@ -111,7 +111,7 @@ io.on('connect', function(socket) {
   });
 
   //-- Addition: This function is called when the client clicks on the `Take a picture` button.
-  socket.on('light', function () {
+  socket.on('takePicture', function () {
     /// First, we create a name for the new picture.
     /// The .replace() function removes all special characters from the date.
     /// This way we can use it as the filename.
