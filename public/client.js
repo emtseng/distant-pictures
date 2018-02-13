@@ -25,19 +25,33 @@ function ledOFF() {
 }
 
 //-- Addition: Forward the `Take a picture` button-press to the webserver.
-function takePicture(){
+function takePicture() {
   socket.emit('takePicture');
 }
 
 //-- Addition: This function receives the new image name and applies it to html element.
 
-socket.on('newPicture', function(msg) {
-  console.log(msg.palette)
+var ERR = 'err'
+var $ = require('jquery')
+
+socket.on('newPicture', function (msg) {
   document.getElementById('pictureContainer').src = msg.img;
+
+  console.log(msg.palette)
+  var palette = msg.palette
+
+  if (palette !== ERR) {
+    for (range in palette) {
+      var swatch = palette[range]
+      $('#paletteContainer').appendChild(`<div id='${range}'></div>`)
+      $(`#${range}`).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
+    }
+  }
+
 });
 // read the data from the message that the server sent and change the
 // background of the webpage based on the data in the message
-socket.on('server-msg', function(msg) {
+socket.on('server-msg', function (msg) {
   msg = msg.toString();
   console.log('msg:', msg);
   switch (msg) {

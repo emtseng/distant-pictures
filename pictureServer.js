@@ -124,7 +124,6 @@ io.on('connect', function (socket) {
     //Third, the picture is taken and saved to the `public/`` folder
     NodeWebcam.capture(`public/${imageName}`, opts, function (err, data) {
       console.error(err)
-      console.log("made it into the callback")
       Vibrant.from(data).getPalette()
         .then((palette) => {
           console.log("palette: ", palette)
