@@ -11,8 +11,6 @@ Usage: This file is called automatically when the webpage is served.
 //--Addition. Added a button handling for the `Take a picture` button.
 */
 
-var Vibrant = require('node-vibrant')
-
 // WebSocket connection setup
 var socket = io();
 
