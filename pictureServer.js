@@ -121,11 +121,11 @@ io.on('connect', function (socket) {
 
     console.log(`making a picture at ${imageName}`); // Second, the name is logged to the console.
 
-    //Third, the picture is  taken and saved to the `public/`` folder
+    //Third, the picture is taken and saved to the `public/`` folder
     Webcam.capture(`public/${imageName}`, opts, function (err, imageLocation) {
-      Vibrant.from(imageLocation).getPalette()
+      return Vibrant.from(imageLocation).getPalette()
         .then((palette) => {
-          console.log(palette)
+          console.log("palette: ", palette)
           io.emit('newPicture', {
             palette,
             img: `${imageName}.jpg`
