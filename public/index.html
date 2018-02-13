@@ -1,20 +1,31 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf8"/>
-        <title>Interaction Engine - Hello You!</title>
-        <script src="/socket.io/socket.io.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-    <body>
-        <body bgcolor="#000">
+
+<head>
+    <meta charset="utf8" />
+    <title>Interaction Engine - Hello You!</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+
+<body bgcolor="#000">
+    <div id="LED-buttons">
         <button onclick="ledON()">LED ON</button>
         <button onclick="ledOFF()">LED OFF</button>
+    </div>
+    <div id="snap-buttons">
         <button onclick="takePicture()">Take a picture</button>
-      </br>
-        <img src="" id= "pictureContainer" alt="WebCam image made by the webserver">
-        <div id="paletteContainer" alt="color palette created by generator"></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="client.js"></script>
-    </body>
+    </div>
+
+    <div id="image">
+        <img src="" id="pictureContainer" alt="WebCam image made by the webserver">
+    </div>
+    <div id="paletteContainer" alt="color palette created by generator">
+        Your color palette:
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="client.js"></script>
+</body>
+
 </html>
