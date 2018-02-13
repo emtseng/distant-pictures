@@ -32,7 +32,6 @@ function takePicture() {
 //-- Addition: This function receives the new image name and applies it to html element.
 
 var ERR = 'err'
-var $ = require('jquery')
 
 socket.on('newPicture', function (msg) {
   document.getElementById('pictureContainer').src = msg.img;
@@ -45,8 +44,8 @@ socket.on('newPicture', function (msg) {
       var swatch = palette[key]
       console.log('swatch:', swatch)
       if (swatch) {
-        $('#paletteContainer').appendChild(`<div id='${key}'></div>`)
-        $(`#${key}`).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
+        document.getElementById('paletteContainer').appendChild(`<div id='${key}'></div>`)
+        document.getElementById(key).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
       }
     })
   }
