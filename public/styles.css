@@ -1,3 +1,12 @@
+#paletteContainer {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .swatch {
-  height: 10px
+  height: 100px;
+  width: 100px;
+  margin: 1em;
 }
