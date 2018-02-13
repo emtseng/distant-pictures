@@ -122,9 +122,8 @@ io.on('connect', function (socket) {
     console.log(`making a picture at ${imageName}`); // Second, the name is logged to the console.
 
     //Third, the picture is  taken and saved to the `public/`` folder
-    NodeWebcam.capture(`public/${imageName}`, opts, function (err, data) {
-      console.error(err)
-      Vibrant.from(`public/${imageName}`).getPalette()
+    Webcam.capture(`public/${imageName}`, opts, function (err, imageLocation) {
+      Vibrant.from(imageLocation).getPalette()
         .then((palette) => {
           console.log(palette)
           io.emit('newPicture', {
