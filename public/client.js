@@ -44,7 +44,7 @@ socket.on('newPicture', function (msg) {
       var swatch = palette[key]
       console.log('swatch:', swatch)
       if (swatch) {
-        document.getElementById('paletteContainer').appendChild(`<div id='${key}'></div>`)
+        document.getElementById('paletteContainer').appendChild("<div id='" + key + "'></div>")
         document.getElementById(key).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
       }
     })
