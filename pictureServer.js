@@ -124,11 +124,11 @@ io.on('connect', function (socket) {
     //Third, the picture is  taken and saved to the `public/`` folder
     NodeWebcam.capture(`public/${imageName}`, opts, function (err, data) {
       console.error(err)
-      Vibrant.from('path/to/image').getPalette()
+      Vibrant.from(`public/${imageName}`).getPalette()
         .then((palette) => {
           console.log(palette)
           io.emit('newPicture', {
-            palette: '',
+            palette,
             img: `${imageName}.jpg`
           }); ///Lastly, the new name is send to the client web browser.
           /// The browser will take this new name and load the picture from the public folder.
