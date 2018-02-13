@@ -123,7 +123,8 @@ io.on('connect', function (socket) {
 
     //Third, the picture is taken and saved to the `public/`` folder
     Webcam.capture(`public/${imageName}`, opts, function (err, imageLocation) {
-      return Vibrant.from(imageLocation).getPalette()
+      console.error(err)
+      Vibrant.from(imageLocation).getPalette()
         .then((palette) => {
           console.log("palette: ", palette)
           io.emit('newPicture', {
@@ -132,7 +133,7 @@ io.on('connect', function (socket) {
           }); ///Lastly, the new name is send to the client web browser.
           /// The browser will take this new name and load the picture from the public folder.
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err)
           io.emit('newPicture', {
             palette: 'err',
