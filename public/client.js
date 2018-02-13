@@ -11,6 +11,8 @@ Usage: This file is called automatically when the webpage is served.
 //--Addition. Added a button handling for the `Take a picture` button.
 */
 
+var Vibrant = require('node-vibrant')
+
 // WebSocket connection setup
 var socket = io();
 
@@ -32,7 +34,8 @@ function takePicture(){
 //-- Addition: This function receives the new image name and applies it to html element.
 
 socket.on('newPicture', function(msg) {
-  document.getElementById('pictureContainer').src = msg;
+  console.log(msg.palette)
+  document.getElementById('pictureContainer').src = msg.img;
 });
 // read the data from the message that the server sent and change the
 // background of the webpage based on the data in the message
