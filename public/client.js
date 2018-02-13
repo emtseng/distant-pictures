@@ -42,9 +42,8 @@ socket.on('newPicture', function (msg) {
   if (palette !== ERR) {
     Object.keys(palette).forEach(key => {
       var swatch = palette[key]
-      console.log('swatch:', swatch)
       if (swatch) {
-        var square = `<div id='${key}'></div>`
+        var square = `<div class='swatch' id='${key}'></div>`
         $('#paletteContainer').append(square)
         $(`#${key}`).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
       }
