@@ -76,13 +76,13 @@ var Webcam = NodeWebcam.create(opts); //starting up the webcam
 
 //---------------------- SERIAL COMMUNICATION (Arduino) ----------------------//
 // start the serial port connection and read on newlines
-// const serial = new SerialPort(process.argv[2], {});
+const serial = new SerialPort(process.argv[2], {});
 const parser = new Readline({
   delimiter: '\r\n'
 });
 
 // Read data that is available on the serial port and send it to the websocket
-// serial.pipe(parser);
+serial.pipe(parser);
 parser.on('data', function (data) {
   console.log('Data:', data);
   io.emit('server-msg', data);
