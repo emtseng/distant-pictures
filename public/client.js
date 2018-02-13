@@ -41,12 +41,14 @@ socket.on('newPicture', function (msg) {
   var palette = msg.palette
 
   if (palette !== ERR) {
-    for (var range in palette) {
-      console.log('range:', range)
-      var swatch = palette[range]
-      $('#paletteContainer').appendChild(`<div id='${range}'></div>`)
-      $(`#${range}`).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
-    }
+    Object.keys(palette).forEach(key => {
+      var swatch = palette[key]
+      console.log('swatch:', swatch)
+      if (swatch) {
+        $('#paletteContainer').appendChild(`<div id='${key}'></div>`)
+        $(`#${key}`).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
+      }
+    })
   }
 
 });
