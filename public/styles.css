@@ -1,8 +1,16 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center
+}
+
+#snap-buttons>button {
+  background-color: white;
+  border: none;
+  border-radius: 1.5em;
+  padding: 1em;
+  font-size: 1.5em
 }
 
 #paletteContainer {
