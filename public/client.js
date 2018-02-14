@@ -40,9 +40,7 @@ socket.on('newPicture', function (msg) {
   var palette = msg.palette
 
   if (palette !== ERR) {
-    if ($('#paletteContainer').children().length > 0) {
-      $('#paletteContainer').empty()
-    }
+    $('#paletteContainer').empty()
     Object.keys(palette).forEach(key => {
       var swatch = palette[key]
       if (swatch) {
