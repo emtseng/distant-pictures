@@ -9,23 +9,27 @@
 </head>
 
 
-<body bgcolor="#000">
+<body>
     <!-- LED button code saved for future lab
         <div id="LED-buttons">
             <button onclick="ledON()">LED ON</button>
             <button onclick="ledOFF()">LED OFF</button>
         </div>
      -->
-    <div id="snap-buttons">
-        <button onclick="takePicture()">GET PALETTE</button>
-    </div>
+    <div id="left" bgcolor="#000">
+        <div id="snap-buttons">
+            <button onclick="takePicture()">GET PALETTE</button>
+        </div>
 
-    <div id="image">
-        <img src="" id="pictureContainer" alt="WebCam image made by the webserver">
+        <div id="image">
+            <img src="" id="pictureContainer" alt="WebCam image made by the webserver">
+        </div>
     </div>
     <div id="palette">
-        <h3>Your key colors are:</h3>
-        <div id="paletteContainer" alt="color palette created by generator"/>
+        <h3>Your key colors</h3>
+        <div id="paletteContainer" alt="color palette created by generator">
+            <h3>None yet!</h3>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="client.js"></script>

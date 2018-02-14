@@ -61,12 +61,12 @@ socket.on('server-msg', function (msg) {
   console.log('msg:', msg);
   switch (msg) {
     case "light":
-      document.body.style.backgroundColor = "white";
+      $('#left').css('backgroundColor', 'white')
       console.log("white")
       takePicture()
       break;
     case "dark":
-      document.body.style.backgroundColor = "black";
+      $('#left').css('backgroundColor', 'black')
       console.log("black");
       break;
     default:
