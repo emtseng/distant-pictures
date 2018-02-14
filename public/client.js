@@ -25,27 +25,46 @@ function ledOFF() {
 }
 
 //-- Addition: Forward the `Take a picture` button-press to the webserver.
-function takePicture(){
+function takePicture() {
   socket.emit('takePicture');
 }
 
 //-- Addition: This function receives the new image name and applies it to html element.
 
-socket.on('newPicture', function(msg) {
-  document.getElementById('pictureContainer').src = msg;
+var ERR = 'err'
+
+socket.on('newPicture', function (msg) {
+  document.getElementById('pictureContainer').src = msg.img;
+
+  console.log(msg.palette)
+  var palette = msg.palette
+
+  if (palette !== ERR) {
+    $('#paletteContainer').empty()
+    Object.keys(palette).forEach(key => {
+      var swatch = palette[key]
+      if (swatch) {
+        var square = `<div class='swatch' id='${key}'></div>`
+        $('#paletteContainer').append(square)
+        $(`#${key}`).css('backgroundColor', `rgb(${swatch._rgb[0]}, ${swatch._rgb[1]}, ${swatch._rgb[2]})`)
+      }
+    })
+  }
+
 });
 // read the data from the message that the server sent and change the
 // background of the webpage based on the data in the message
-socket.on('server-msg', function(msg) {
+socket.on('server-msg', function (msg) {
   msg = msg.toString();
   console.log('msg:', msg);
   switch (msg) {
     case "light":
-      document.body.style.backgroundColor = "white";
+      $('#left').css('backgroundColor', 'white')
       console.log("white")
+      takePicture()
       break;
     case "dark":
-      document.body.style.backgroundColor = "black";
+      $('#left').css('backgroundColor', 'black')
       console.log("black");
       break;
     default:

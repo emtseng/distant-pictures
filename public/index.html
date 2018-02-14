@@ -1,17 +1,38 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf8"/>
-        <title>Interaction Engine - Hello You!</title>
-        <script src="/socket.io/socket.io.js"></script>
-    </head>
-    <body>
-        <body bgcolor="#000">
-        <button onclick="ledON()">LED ON</button>
-        <button onclick="ledOFF()">LED OFF</button>
-        <button onclick="takePicture()">Take a picture</button>
-      </br>
-        <img src="" id= "pictureContainer" alt="WebCam image  made by the webserver">
-        <script src="client.js"></script>
-    </body>
+
+<head>
+    <meta charset="utf8" />
+    <title>Interaction Engine - Hello You!</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+
+<body>
+    <!-- LED button code saved for future lab
+        <div id="LED-buttons">
+            <button onclick="ledON()">LED ON</button>
+            <button onclick="ledOFF()">LED OFF</button>
+        </div>
+     -->
+    <div id="left" bgcolor="#000">
+        <div id="snap-buttons">
+            <button onclick="takePicture()">GET PALETTE</button>
+        </div>
+
+        <div id="image">
+            <img src="" id="pictureContainer" alt="WebCam image made by the webserver">
+        </div>
+    </div>
+    <div id="palette">
+        <div id="paletteContainer" alt="color palette created by generator">
+            <p>Click "get palette" to take a photo!<br> The key colors in your image will show up here.</p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="client.js"></script>
+</body>
+
 </html>
