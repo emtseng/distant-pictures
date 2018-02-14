@@ -8,7 +8,12 @@ body {
 }
 
 #left {
-  width: 50%
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #snap-buttons>button {
@@ -21,6 +26,7 @@ body {
 
 #palette {
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
