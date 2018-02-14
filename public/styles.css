@@ -14,6 +14,13 @@ body {
   font-size: 1.5em
 }
 
+#palette {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
 #paletteContainer {
   width: 90vw;
   display: flex;
